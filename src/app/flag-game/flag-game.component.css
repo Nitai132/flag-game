@@ -1,0 +1,21 @@
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.currentImg {
+    height: 300px;
+}
+
+.radio {
+    text-align: center;
+}
+
+.answerBTN {
+    margin-left: 25px;
+    padding-right: 40px
+}
+
+.counter {
+    text-align: center;
+}

@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>which country this flag belongs to?</h1>
+    <img src={{countries[0].flag}} class="currentImg"/>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="radio">
+    <button (click)="sendAnswer(answersArray[0])" mat-raised-button color="primary" class="answerBTN">{{answersArray[0]}}</button>
+    <button (click)="sendAnswer(answersArray[1])" mat-raised-button color="primary" class="answerBTN">{{answersArray[1]}}</button>
+    <button (click)="sendAnswer(answersArray[2])" mat-raised-button color="primary" class="answerBTN">{{answersArray[2]}}</button>
+    <button (click)="sendAnswer(answersArray[3])" mat-raised-button color="primary" class="answerBTN">{{answersArray[3]}}</button>
+</div>
+<br />
+<br />
+<br />
+
+<div class="counter">
+    <h1>your score is: {{score}}/25</h1>
+    <h2>countries left: {{countries.length-4}}</h2>
+</div>
