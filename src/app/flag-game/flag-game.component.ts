@@ -27,6 +27,15 @@ export class FlagGameComponent implements OnInit {
     return a;
   }
 
+  getCountries() {
+    fetch('https://restcountries.eu/rest/v2/region/europe?fields=name;flag')
+    .then(res => res.json())
+    .then(result => {
+      this.countries = result.slice(0, 29)
+      this.answersArray = this.shuffle(result.slice(0, 4).map(({name})=> name))
+    })
+  }
+
   sendAnswer(answer) {
     if(answer === this.countries[0].name) {
       this.score++
@@ -40,23 +49,12 @@ export class FlagGameComponent implements OnInit {
     this.answersArray = this.shuffle(this.countries.slice(0, 4).map(({name})=> name))
     if (this.countries.length == 4) {
       alert(`well done! you have completed the game! your score is ${this.score}/25 lets start again!`)
-      fetch('https://restcountries.eu/rest/v2/region/europe?fields=name;flag')
-      .then(res => res.json())
-      .then(result => {
-        this.countries = result;
-        this.answersArray = this.shuffle(result.slice(0, 4).map(({name})=> name))
-      })
+      this.getCountries()
   }
   }
 
   ngOnInit(): void {
-    fetch('https://restcountries.eu/rest/v2/region/europe?fields=name;flag')
-    .then(res => res.json())
-    .then(result => {
-      this.countries = result.slice(0, 29)
-      this.answersArray = this.shuffle(result.slice(0, 4).map(({name})=> name))
-    })
-    
+    this.getCountries()
   }
 
 }
