@@ -32,7 +32,7 @@ export class FlagGameComponent implements OnInit {
       this.countries = result.slice(0, 29);
       this.answersArray = this.shuffle(result.slice(0, 4).map(({name})=> name));
     })
-  }
+  };
 
   sendAnswer(answer) {
     if(answer === this.countries[0].name) {
@@ -47,13 +47,13 @@ export class FlagGameComponent implements OnInit {
       this.answersArray = this.shuffle(this.countries.slice(0, 4).map(({name})=> name));
 
     if (this.countries.length == 4) {
-      alert(`well done! you have completed the game! your score is ${this.score}/25 lets start again!`)
-      this.getCountries()
+      alert(`well done! you have completed the game! your score is ${this.score}/25 lets start again!`);
+      this.getCountries();
     };
   };
 
   ngOnInit(): void {
-    this.getCountries()
-  }
+    this.getCountries();
+  };
 
-}
+};
